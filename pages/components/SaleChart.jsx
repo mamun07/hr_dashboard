@@ -25,7 +25,7 @@ export default function SaleChart() {
               'rgba(0,128, 0, 0.4)'
             ],
             tension: 0.1,
-            borderWidth: 1,
+            borderWidth: 3,
             borderJoinStyle:'miter'
         },
         {
@@ -39,7 +39,7 @@ export default function SaleChart() {
                 'rgba(255, 0, 0, 0.4)'
             ],
             tension: 0.1,
-            borderWidth: 1
+            borderWidth: 3
         }
     ]
   }

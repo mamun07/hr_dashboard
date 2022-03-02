@@ -1,6 +1,7 @@
 import Dashinfo from './container/Dashinfo';
 import ChartInfo from './container/ChartInfo';
 import { Container, Grid, Typography } from '@mui/material';
+import DashStatic from './container/DashStatic';
 
 export default function Home() {
   
@@ -23,13 +24,9 @@ export default function Home() {
         <ChartInfo/>
       </Container>
 
-      {/* Dashboard empolyee  */}
+      {/* Statistics area  */}
       <Container maxWidth='xxl' sx={{marginBottom: '50px'}}>
-          <Grid container spacing={0} mb={3}>
-            <Grid item xs={12}>
-              <Typography variant='p'>Empolyee</Typography>
-            </Grid>
-          </Grid>
+          <DashStatic/>
       </Container>
 
 
