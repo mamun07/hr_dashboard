@@ -1,6 +1,7 @@
 import React from 'react'
-import Chart from '../components/Chart'
 import { Card, Grid, Typography } from '@mui/material'
+import RevChart from '../components/RevChart'
+import SaleChart from '../components/SaleChart'
 
 export default function ChartInfo() {
   return (
@@ -8,13 +9,13 @@ export default function ChartInfo() {
       <Grid item xs={12} md={6}>
         <Card variant="outlined" sx={{padding: '20px'}}>
           <Typography variant='h6' sx={{textAlign: 'center'}}>Total Revenue</Typography>
-          <Chart />
+          <RevChart />
         </Card>
       </Grid>
       <Grid item xs={12} md={6}>
         <Card variant="outlined" sx={{padding: '20px'}}>
           <Typography variant='h6' sx={{textAlign: 'center'}}>Sales Overview</Typography>
-          <Chart />
+          <SaleChart />
         </Card>
       </Grid>
     </Grid>
