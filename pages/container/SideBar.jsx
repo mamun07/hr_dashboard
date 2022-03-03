@@ -7,9 +7,7 @@ import { toast } from 'react-toastify'
 import { CheckCircle } from '@mui/icons-material'
 
 export default function SideBar() {
-  
   const [open, setOpen] = useState(false);
-
   const handleClick = () => { 
     setOpen(!open); 
   };

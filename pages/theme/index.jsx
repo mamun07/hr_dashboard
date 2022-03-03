@@ -14,7 +14,9 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: 'Helvetica, sans-serif',
+    fontFamily: [
+      'Roboto',
+    ].join(','),
   },
 
 });

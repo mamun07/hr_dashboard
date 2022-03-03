@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* Dashboard Summary */}
-      <Container maxWidth='xxl' sx={{marginBottom: '50px'}}>
+      <Container maxWidth='xxl' sx={{marginBottom: '20px'}}>
           {/* Dashboard welcome title */}
           <Grid container spacing={0} mb={3}>
             <Grid item xs={12}>
@@ -20,15 +20,14 @@ export default function Home() {
       </Container>
 
       {/* Dashboard Chart map */}
-      <Container maxWidth="xxl" sx={{marginBottom: '50px'}}>
+      <Container maxWidth="xxl" sx={{marginBottom: '20px'}}>
         <ChartInfo/>
       </Container>
 
       {/* Statistics area  */}
-      <Container maxWidth='xxl' sx={{marginBottom: '50px'}}>
+      <Container maxWidth='xxl' sx={{marginBottom: '20px'}}>
           <DashStatic/>
       </Container>
-
 
     </>
   )

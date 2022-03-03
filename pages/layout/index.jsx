@@ -1,14 +1,25 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Head from 'next/head';
 import theme from '../theme'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer} from 'react-toastify';
 import TopBar from '../container/TopBar';
-import SideBar from '../container/SideBar';
-import { Box, ThemeProvider, CssBaseline} from '@mui/material';
+import { Box, ThemeProvider, CssBaseline, Drawer, IconButton, Toolbar, Typography} from '@mui/material';
+import { CgMenuLeft,CgMenuRightAlt } from "react-icons/cg";
+import SideBar from '../container/SideBar'
 
+const drawerWidthOpen = 240;
+const paddingIconButton = 10;
+const marginIconButton = 14;
+const iconFontSize = 10;
+const drawerWidthClose = (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
 export default function Layout({children}) {
+  const [open, setOpen] = useState(false);
+  function toogleOpen() {
+    setOpen(!open);
+  }
+
   return (
     <>
       <Head>
@@ -18,12 +29,52 @@ export default function Layout({children}) {
       </Head>
          <CssBaseline />
          <ThemeProvider theme={theme}>
-           <TopBar />
-           <Box display='flex' component="div" alignItems='revert' sx={{height:'95vh'}}>
-              <Box component="div" flex=".8" sx={{backgroundColor: 'primary.dark', color: 'primary.main'}}>
-                <SideBar />
-              </Box>
-              <Box component="div" my={2} flex='4'>
+           <Box display='flex'>
+              <Drawer variant="permanent" open={open}
+                sx={{
+                  width: open
+                    ? { xs: "0px", sm: drawerWidthClose }
+                    : { xs: drawerWidthClose, sm: drawerWidthOpen },
+                  transition: theme.transitions.create("width", {
+                    easing: theme.transitions.easing.sharp,
+                    duration: open
+                      ? theme.transitions.duration.leavingScreen
+                      : theme.transitions.duration.enteringScreen
+                  }),
+                  "& .MuiDrawer-paper": {
+                    justifyContent: "space-between",
+                    overflowX: "hidden",
+                    width: open
+                      ? { xs: "0px", sm: drawerWidthClose }
+                      : { xs: drawerWidthClose, sm: drawerWidthOpen },
+                    backgroundColor: 'primary.dark',
+                    color: 'primary.main',
+                    transition: theme.transitions.create("width", {
+                      easing: theme.transitions.easing.sharp,
+                      duration: open
+                        ? theme.transitions.duration.leavingScreen
+                        : theme.transitions.duration.enteringScreen
+                    })
+                  }
+                }}
+              >
+                <Box>
+                  <Toolbar>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}> F </Typography>
+                  </Toolbar>
+                  <SideBar/>
+                </Box>
+              </Drawer>
+              <Box component="div" flex='1'>
+              <Box sx={{backgroundColor: 'primary.dark', color: 'primary.main'}}>
+                  <Toolbar>
+                    <IconButton size='large' onClick={toogleOpen} color="primary" sx={{marginRight: '15px'}}>
+                      {open ? <CgMenuLeft/> : <CgMenuRightAlt/>}
+                    </IconButton>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}> Fortunetech </Typography>
+                    <TopBar />
+                  </Toolbar>
+                </Box>
                 {children}
               </Box>
            </Box>
