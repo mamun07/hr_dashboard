@@ -10,7 +10,7 @@ export default function Home() {
       {/* Dashboard Summary */}
       <Container maxWidth='xxl' sx={{marginBottom: '20px'}}>
           {/* Dashboard welcome title */}
-          <Grid container spacing={0} mb={3}>
+          <Grid container spacing={0} my={2}>
             <Grid item xs={12}>
               <Typography  mb={1} variant='h4'>Welcome to Admin!</Typography>
               <Typography variant='p'>Dashboard</Typography>

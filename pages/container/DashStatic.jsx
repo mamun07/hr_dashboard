@@ -6,7 +6,7 @@ export default function DashStatic() {
   return (
     <>
         <Grid container spacing={2}>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
                 <Card variant="outlined" sx={{padding: '20px'}}>
                     <Typography variant='h6' mb={2}>Static</Typography>
                     <Card variant="outlined" sx={{padding: '10px', marginBottom: '15px'}}>
@@ -23,12 +23,12 @@ export default function DashStatic() {
                     </Card>
                 </Card>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
                 <Card variant="outlined" sx={{padding: '10px', marginBottom: '15px'}}>
                     <Typography variant='h6' mb={2}>Task</Typography>
                 </Card>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4}>
                 <Card variant="outlined" sx={{padding: '10px', marginBottom: '15px'}}>
                     <Typography variant='h6' mb={2}>Empolyee</Typography>
                 </Card>
