@@ -1,7 +1,7 @@
 import React, {useState}from 'react'
 import Link from 'next/link'
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText} from '@mui/material'
-import {Settings,SpeedRounded,SupervisorAccount,AccountBalance,More, ExpandLess, ExpandMore, Key, LockOpen} from '@mui/icons-material'
+import {Settings,SpeedRounded,SupervisorAccount,AccountBalance,More, ExpandLess, ExpandMore, Key, LockOpen, AddShoppingCart, Inventory2Outlined} from '@mui/icons-material'
 
 import { toast } from 'react-toastify'
 import { CheckCircle } from '@mui/icons-material'
@@ -35,6 +35,20 @@ export default function SideBar() {
         </ListItemButton>
       </Link>
       
+      <Link href="/settings">
+          <ListItemButton>
+            <ListItemIcon> <AddShoppingCart color='primary'/> </ListItemIcon>
+              <ListItemText primary="Stock Controll"/>
+          </ListItemButton>
+      </Link>
+
+      <Link href="/settings">
+          <ListItemButton>
+            <ListItemIcon> <Inventory2Outlined color='primary'/> </ListItemIcon>
+              <ListItemText primary="All Products"/>
+          </ListItemButton>
+      </Link>
+
       <Link href="/settings">
           <ListItemButton>
             <ListItemIcon> <More color='primary'/> </ListItemIcon>

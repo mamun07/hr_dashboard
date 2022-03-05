@@ -12,7 +12,7 @@ export default function Home() {
           {/* Dashboard welcome title */}
           <Grid container spacing={0} my={2}>
             <Grid item xs={12}>
-              <Typography  mb={1} variant='h4'>Welcome to Admin!</Typography>
+              <Typography  mb={1} variant='h4'>Welcome to Dashboard!</Typography>
               <Typography variant='p'>Dashboard</Typography>
             </Grid>
           </Grid>
