@@ -38,21 +38,21 @@ export default function SideBar() {
       <Link href="/settings">
           <ListItemButton>
             <ListItemIcon> <AddShoppingCart color='primary'/> </ListItemIcon>
-              <ListItemText primary="Stock Controll"/>
+              <ListItemText primary="Sales"/>
           </ListItemButton>
       </Link>
 
       <Link href="/settings">
           <ListItemButton>
             <ListItemIcon> <Inventory2Outlined color='primary'/> </ListItemIcon>
-              <ListItemText primary="All Products"/>
+              <ListItemText primary="Performance"/>
           </ListItemButton>
       </Link>
 
       <Link href="/settings">
           <ListItemButton>
             <ListItemIcon> <More color='primary'/> </ListItemIcon>
-              <ListItemText primary="Others"/>
+              <ListItemText primary="Jobs"/>
           </ListItemButton>
       </Link>
       

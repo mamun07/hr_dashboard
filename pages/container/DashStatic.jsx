@@ -100,7 +100,26 @@ export default function DashStatic() {
             <Grid item xs={12} md={4}>
                 <Card variant="outlined" sx={{p: '15px'}}>
                     <Typography variant='h6' mb={2}>Empolyee</Typography>
-                    
+                    <Card variant="outlined" sx={{p: '10px', mb: '15px'}}>
+                        <Typography sx={{fontSize: '12px'}} variant='span'>Today Leave</Typography>
+                        <LinearProgress color="info" variant="determinate" value={70} />
+                    </Card>
+                    <Card variant="outlined" sx={{p: '10px', mb: '15px'}}>
+                        <Typography sx={{fontSize: '12px'}} variant='span'>Pending Invoice</Typography>
+                        <LinearProgress color="secondary" variant="determinate" value={90} />
+                    </Card>
+                    <Card variant="outlined" sx={{p: '10px', mb: '15px'}}>
+                        <Typography sx={{fontSize: '12px'}} variant='span'>Completed Projects</Typography>
+                        <LinearProgress color="success" variant="determinate" value={10} />
+                    </Card>
+                    <Card variant="outlined" sx={{p: '10px', mb: '15px'}}>
+                        <Typography sx={{fontSize: '12px'}} variant='span'>Open Tickets</Typography>
+                        <LinearProgress color="error" variant="determinate" value={62} />
+                    </Card>
+                    <Card variant="outlined" sx={{p: '10px'}}>
+                        <Typography sx={{fontSize: '12px'}} variant='span'>Closed Tickets</Typography>
+                        <LinearProgress color="success" variant="determinate" value={35} />
+                    </Card>
                 </Card>
             </Grid>
         </Grid>
