@@ -7,12 +7,16 @@ import { toast } from 'react-toastify'
 import { CheckCircle } from '@mui/icons-material'
 
 export default function SideBar() {
-  const [open, setOpen] = useState(false);
-  const handleClick = () => { 
-    setOpen(!open); 
-  };
   const DashWel = ()=>toast.success("Welcome to Dashboard!", { icon: CheckCircle });
 
+  const [setting, setSetting] = useState(false);
+  const settingClick = () => setSetting(!setting);
+
+  const [account, setAccount] = useState(false);
+  const accountClick = () => setAccount(!account);
+
+  const [empolyee, setEmpolyee] = useState(false);
+  const empolyeeClick = () => setEmpolyee(!empolyee);
 
   return (
     <List>
@@ -22,58 +26,75 @@ export default function SideBar() {
           <ListItemText primary="Dashboard"/>
         </ListItemButton>
       </Link>
-      <Link href="/empolyee">
+      <Link href="/settings">
         <ListItemButton>
-          <ListItemIcon> <SupervisorAccount color='primary'/> </ListItemIcon>
-          <ListItemText primary="Employee"/>
+          <ListItemIcon> <AddShoppingCart color='primary'/> </ListItemIcon>
+            <ListItemText primary="Sales"/>
         </ListItemButton>
       </Link>
       <Link href="/settings">
         <ListItemButton>
-          <ListItemIcon> <AccountBalance color='primary'/> </ListItemIcon>
-            <ListItemText primary="Accounts"/>
+          <ListItemIcon> <Inventory2Outlined color='primary'/> </ListItemIcon>
+            <ListItemText primary="Performance"/>
         </ListItemButton>
       </Link>
-      
-      <Link href="/settings">
-          <ListItemButton>
-            <ListItemIcon> <AddShoppingCart color='primary'/> </ListItemIcon>
-              <ListItemText primary="Sales"/>
-          </ListItemButton>
-      </Link>
+      <ListItemButton onClick={empolyeeClick}>
+        <ListItemIcon> <SupervisorAccount color='primary'/> </ListItemIcon>
+        <ListItemText primary="Employee"/>
+        {empolyee ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={empolyee} timeout="auto" unmountOnExit>
+        <List sx={{pl: 4}} component="div" disablePadding>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="All Employee" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Scheduling" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Overtime" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Department" /> </ListItemButton>
+          </Link>
+        </List>
+      </Collapse>
 
+      <ListItemButton onClick={accountClick}>
+        <ListItemIcon> <AccountBalance color='primary'/> </ListItemIcon>
+        <ListItemText primary="Accounts"/>
+        {account ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={account} timeout="auto" unmountOnExit>
+        <List sx={{pl: 4}} component="div" disablePadding>
+          <ListItemButton> <ListItemText primary="Budgets" /> </ListItemButton>
+          <ListItemButton> <ListItemText primary="Categories" /> </ListItemButton>
+          <ListItemButton> <ListItemText primary="Budgets Expenses" /> </ListItemButton>
+          <ListItemButton> <ListItemText primary="Budgets Revenues" /> </ListItemButton>
+        </List>
+      </Collapse>
       <Link href="/settings">
-          <ListItemButton>
-            <ListItemIcon> <Inventory2Outlined color='primary'/> </ListItemIcon>
-              <ListItemText primary="Performance"/>
-          </ListItemButton>
+        <ListItemButton>
+          <ListItemIcon> <More color='primary'/> </ListItemIcon>
+            <ListItemText primary="Others"/>
+        </ListItemButton>
       </Link>
-
-      <Link href="/settings">
-          <ListItemButton>
-            <ListItemIcon> <More color='primary'/> </ListItemIcon>
-              <ListItemText primary="Jobs"/>
-          </ListItemButton>
-      </Link>
-      
-      <ListItemButton onClick={handleClick}>
+      <ListItemButton onClick={settingClick}>
         <ListItemIcon> <Settings color='primary'/> </ListItemIcon>
         <ListItemText primary="Settings"/>
-        {open ? <ExpandLess /> : <ExpandMore />}
+        {setting ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-
-      <Collapse in={open} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon> <Key color='primary'/> </ListItemIcon>
+      <Collapse in={setting} timeout="auto" unmountOnExit>
+        <List sx={{pl: 4}} component="div" disablePadding>
+          <ListItemButton>
             <ListItemText primary="Permissions" />
           </ListItemButton>
-          <ListItemButton sx={{ pl: 4 }}>
-            <ListItemIcon> <LockOpen color='primary'/> </ListItemIcon>
+          <ListItemButton>
             <ListItemText primary="Password" />
           </ListItemButton>
         </List>
       </Collapse>
+
     </List>
   )
 }

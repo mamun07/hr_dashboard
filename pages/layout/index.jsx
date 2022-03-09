@@ -67,7 +67,7 @@ export default function Layout({children}) {
             </Box>
           </Drawer>
           <Box component="div" flex='1'>
-            <Box bgcolor={'primary.dark'} color={'primary.main'}>
+            <Box position='static' bgcolor={'primary.dark'} color={'primary.main'}>
               <Toolbar sx={{justifyContent: 'space-between'}}>
                 <IconButton size='large' onClick={toogleOpen} color="primary" sx={{marginRight: '15px'}}>
                   {open ? <CgMenuLeft/> : <CgMenuRightAlt/>}
