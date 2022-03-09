@@ -1,7 +1,7 @@
 import React, {useState}from 'react'
 import Link from 'next/link'
 import { Collapse, List, ListItemButton, ListItemIcon, ListItemText} from '@mui/material'
-import {Settings,SpeedRounded,SupervisorAccount,AccountBalance,More, ExpandLess, ExpandMore, Key, LockOpen, AddShoppingCart, Inventory2Outlined} from '@mui/icons-material'
+import {Settings, SpeedRounded, SupervisorAccount, AccountBalance, ContentCopy, ExpandLess, ExpandMore, AddShoppingCart} from '@mui/icons-material'
 
 import { toast } from 'react-toastify'
 import { CheckCircle } from '@mui/icons-material'
@@ -18,6 +18,9 @@ export default function SideBar() {
   const [empolyee, setEmpolyee] = useState(false);
   const empolyeeClick = () => setEmpolyee(!empolyee);
 
+  const [sales, setSeles] = useState(true);
+  const salesClick = () => setSeles(!sales);
+
   return (
     <List>
       <Link href="/">
@@ -26,18 +29,30 @@ export default function SideBar() {
           <ListItemText primary="Dashboard"/>
         </ListItemButton>
       </Link>
-      <Link href="/settings">
-        <ListItemButton>
-          <ListItemIcon> <AddShoppingCart color='primary'/> </ListItemIcon>
-            <ListItemText primary="Sales"/>
-        </ListItemButton>
-      </Link>
-      <Link href="/settings">
-        <ListItemButton>
-          <ListItemIcon> <Inventory2Outlined color='primary'/> </ListItemIcon>
-            <ListItemText primary="Performance"/>
-        </ListItemButton>
-      </Link>
+      <ListItemButton onClick={salesClick}>
+        <ListItemIcon> <AddShoppingCart color='primary'/> </ListItemIcon>
+          <ListItemText primary="Sales"/>
+          {sales ? <ExpandLess /> : <ExpandMore />}
+      </ListItemButton>
+      <Collapse in={sales} timeout="auto" unmountOnExit>
+        <List sx={{pl: 4}} component="div" disablePadding>
+          <Link href="/sales">
+            <ListItemButton> <ListItemText primary="Invoices" /> </ListItemButton>
+          </Link>
+          <Link href="/sales">
+            <ListItemButton> <ListItemText primary="Payments" /> </ListItemButton>
+          </Link>
+          <Link href="/sales">
+            <ListItemButton> <ListItemText primary="Expenses" /> </ListItemButton>
+          </Link>
+          <Link href="/sales">
+            <ListItemButton> <ListItemText primary="Provident Fund" /> </ListItemButton>
+          </Link>
+          <Link href="/sales">
+            <ListItemButton> <ListItemText primary="Taxes" /> </ListItemButton>
+          </Link>
+        </List>
+      </Collapse>
       <ListItemButton onClick={empolyeeClick}>
         <ListItemIcon> <SupervisorAccount color='primary'/> </ListItemIcon>
         <ListItemText primary="Employee"/>
@@ -49,6 +64,9 @@ export default function SideBar() {
             <ListItemButton> <ListItemText primary="All Employee" /> </ListItemButton>
           </Link>
           <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Salary" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
             <ListItemButton> <ListItemText primary="Scheduling" /> </ListItemButton>
           </Link>
           <Link href="/empolyee">
@@ -56,6 +74,15 @@ export default function SideBar() {
           </Link>
           <Link href="/empolyee">
             <ListItemButton> <ListItemText primary="Department" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Performance" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Promotion" /> </ListItemButton>
+          </Link>
+          <Link href="/empolyee">
+            <ListItemButton> <ListItemText primary="Termination" /> </ListItemButton>
           </Link>
         </List>
       </Collapse>
@@ -67,18 +94,28 @@ export default function SideBar() {
       </ListItemButton>
       <Collapse in={account} timeout="auto" unmountOnExit>
         <List sx={{pl: 4}} component="div" disablePadding>
-          <ListItemButton> <ListItemText primary="Budgets" /> </ListItemButton>
-          <ListItemButton> <ListItemText primary="Categories" /> </ListItemButton>
-          <ListItemButton> <ListItemText primary="Budgets Expenses" /> </ListItemButton>
-          <ListItemButton> <ListItemText primary="Budgets Revenues" /> </ListItemButton>
+          <Link href="/accounts">
+            <ListItemButton> <ListItemText primary="Budgets" /> </ListItemButton>
+          </Link>
+          <Link href="/accounts">
+            <ListItemButton> <ListItemText primary="Categories" /> </ListItemButton>
+          </Link>
+          <Link href="/accounts">
+            <ListItemButton> <ListItemText primary="Budgets Expenses" /> </ListItemButton>
+          </Link>
+          <Link href="/accounts">
+            <ListItemButton> <ListItemText primary="Budgets Revenues" /> </ListItemButton>
+          </Link>
         </List>
       </Collapse>
-      <Link href="/settings">
+
+      <Link href="/assets">
         <ListItemButton>
-          <ListItemIcon> <More color='primary'/> </ListItemIcon>
-            <ListItemText primary="Others"/>
+          <ListItemIcon> <ContentCopy color='primary'/> </ListItemIcon>
+            <ListItemText primary="Assets"/>
         </ListItemButton>
       </Link>
+
       <ListItemButton onClick={settingClick}>
         <ListItemIcon> <Settings color='primary'/> </ListItemIcon>
         <ListItemText primary="Settings"/>
@@ -86,12 +123,12 @@ export default function SideBar() {
       </ListItemButton>
       <Collapse in={setting} timeout="auto" unmountOnExit>
         <List sx={{pl: 4}} component="div" disablePadding>
-          <ListItemButton>
-            <ListItemText primary="Permissions" />
-          </ListItemButton>
-          <ListItemButton>
-            <ListItemText primary="Password" />
-          </ListItemButton>
+          <Link href='/settings'>
+            <ListItemButton> <ListItemText primary="Permissions" /> </ListItemButton>
+          </Link>
+          <Link href='/settings'>
+            <ListItemButton> <ListItemText primary="Password" /> </ListItemButton>
+          </Link>
         </List>
       </Collapse>
 

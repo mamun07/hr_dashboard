@@ -30,7 +30,8 @@ export default function Layout({children}) {
       </Head>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Box display='flex'>
+        <Box  pt={8} display='flex'>
+
           <Drawer variant="permanent" open={open}
             sx={{
               width: open
@@ -59,19 +60,20 @@ export default function Layout({children}) {
               }
             }}
           >
-            <Box>
-              <Toolbar>
-                {open ? <Typography variant="h4" sx={{ flexGrow: 1 }}> F </Typography> : <Typography variant="h6" sx={{ flexGrow: 1 }}> Fortunetech </Typography>}
-              </Toolbar>
+            <Box pt={7}>
               <SideBar/>
             </Box>
           </Drawer>
+
           <Box component="div" flex='1'>
-            <Box position='static' bgcolor={'primary.dark'} color={'primary.main'}>
+            <Box position='fixed' sx={{top:0, left: 0, right: 0, zIndex: 9999}} bgcolor={'primary.dark'} color={'primary.main'}>
               <Toolbar sx={{justifyContent: 'space-between'}}>
-                <IconButton size='large' onClick={toogleOpen} color="primary" sx={{marginRight: '15px'}}>
-                  {open ? <CgMenuLeft/> : <CgMenuRightAlt/>}
-                </IconButton>
+                <Box component='div' sx={{display: 'flex', alignItems: 'center'}}>
+                  <IconButton size='large' onClick={toogleOpen} color="primary" sx={{marginRight: '15px'}}>
+                    {open ? <CgMenuLeft/> : <CgMenuRightAlt/>}
+                  </IconButton>
+                  {open ? '' : <Typography variant='h5'>Fortunetech</Typography>}
+                </Box>
                 <Box component='div' >
                   <Paper
                     component="form"
@@ -94,7 +96,7 @@ export default function Layout({children}) {
           </Box>
         </Box>
         
-      <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} />
+      <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} />
       </ThemeProvider>
     </>
   )
