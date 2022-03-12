@@ -98,7 +98,7 @@ export default function Layout({ children }) {
                     {open ? <CgMenuLeft /> : <CgMenuRightAlt />}
                   </IconButton>
                   {open ? (
-                    ""
+                    " "
                   ) : (
                     <Typography variant="h5">Fortunetech</Typography>
                   )}

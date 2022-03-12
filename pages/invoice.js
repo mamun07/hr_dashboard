@@ -61,7 +61,7 @@ export default function invoice() {
           <Box my={4} display={'flex'} alignItems={'center'} justifyContent={'space-between'} >
             <Typography variant='h4'>Invoices</Typography>
             <Box>
-            <Button onClick={handleOpen} variant="contained" sx={{bgcolor: 'secondary.main', color: 'primary.main'}}><AddIcon/> Create Invoices</Button>
+            <Button onClick={handleOpen} variant="contained" sx={{bgcolor: 'secondary.main', color: 'primary.text'}}><AddIcon/></Button>
               <StyledModal
                 aria-labelledby="unstyled-modal-title"
                 aria-describedby="unstyled-modal-description"
@@ -83,8 +83,8 @@ export default function invoice() {
           <TextField
             sx={{width: '100%', color: 'primary'}}
             id="outlined-textarea"
-            label="Multiline Placeholder"
-            placeholder="Placeholder"
+            label="Start Date"
+            placeholder="12/02/2022"
             multiline
           />
         </Grid>
@@ -92,8 +92,8 @@ export default function invoice() {
           <TextField
             sx={{width: '100%', color: 'primary'}}
             id="outlined-textarea"
-            label="Multiline Placeholder"
-            placeholder="Placeholder"
+            label="End Date"
+            placeholder="12/02/2022"
             multiline
           />
         </Grid>
