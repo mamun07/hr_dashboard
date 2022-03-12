@@ -62,8 +62,8 @@ export default function Layout({ children }) {
                 width: open
                   ? { xs: "0px", sm: drawerWidthClose }
                   : { xs: drawerWidthClose, sm: drawerWidthOpen },
-                backgroundColor: "primary.dark",
-                color: "primary.main",
+                backgroundColor: "primary.main",
+                color: "primary.text",
                 transition: theme.transitions.create("width", {
                   easing: theme.transitions.easing.sharp,
                   duration: open
@@ -82,8 +82,8 @@ export default function Layout({ children }) {
             <Box
               position="fixed"
               sx={{ top: 0, left: 0, right: 0, zIndex: 9999 }}
-              bgcolor={"primary.dark"}
-              color={"primary.main"}
+              bgcolor={"primary.main"}
+              color={"primary.text"}
             >
               <Toolbar sx={{ justifyContent: "space-between" }}>
                 <Box
@@ -93,8 +93,7 @@ export default function Layout({ children }) {
                   <IconButton
                     size="large"
                     onClick={toogleOpen}
-                    color="primary"
-                    sx={{ marginRight: "15px" }}
+                    sx={{ marginRight: "15px", color: "secondary.text" }}
                   >
                     {open ? <CgMenuLeft /> : <CgMenuRightAlt />}
                   </IconButton>
@@ -116,7 +115,7 @@ export default function Layout({ children }) {
                     }}
                   >
                     <InputBase
-                      sx={{ ml: 1, flex: 1, color: "primary.main" }}
+                      sx={{ ml: 1, flex: 1, color: "primary.text" }}
                       placeholder="Search here..."
                       inputProps={{ "aria-label": "Search here..." }}
                     />

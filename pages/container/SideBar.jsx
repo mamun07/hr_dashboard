@@ -41,16 +41,15 @@ export default function SideBar() {
     <List>
       <Link href="/">
         <ListItemButton onClick={DashWel}>
-          <ListItemIcon>
-            {" "}
-            <SpeedRounded color="primary" />{" "}
+          <ListItemIcon sx={{ color: "secondary.text" }}>
+            <SpeedRounded />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItemButton>
       </Link>
       <ListItemButton onClick={salesClick}>
-        <ListItemIcon>
-          <AddShoppingCart color="primary" />
+        <ListItemIcon sx={{ color: "secondary.text" }}>
+          <AddShoppingCart />
         </ListItemIcon>
         <ListItemText primary="Sales" />
         {sales ? <ExpandLess /> : <ExpandMore />}
@@ -85,8 +84,8 @@ export default function SideBar() {
         </List>
       </Collapse>
       <ListItemButton onClick={empolyeeClick}>
-        <ListItemIcon>
-          <SupervisorAccount color="primary" />
+        <ListItemIcon sx={{ color: "secondary.text" }}>
+          <SupervisorAccount />
         </ListItemIcon>
         <ListItemText primary="Employee" />
         {empolyee ? <ExpandLess /> : <ExpandMore />}
@@ -137,8 +136,8 @@ export default function SideBar() {
       </Collapse>
 
       <ListItemButton onClick={accountClick}>
-        <ListItemIcon>
-          <AccountBalance color="primary" />
+        <ListItemIcon sx={{ color: "secondary.text" }}>
+          <AccountBalance />
         </ListItemIcon>
         <ListItemText primary="Accounts" />
         {account ? <ExpandLess /> : <ExpandMore />}
@@ -170,16 +169,16 @@ export default function SideBar() {
 
       <Link href="/assets">
         <ListItemButton>
-          <ListItemIcon>
-            <ContentCopy color="primary" />
+          <ListItemIcon sx={{ color: "secondary.text" }}>
+            <ContentCopy />
           </ListItemIcon>
           <ListItemText primary="Assets" />
         </ListItemButton>
       </Link>
 
       <ListItemButton onClick={settingClick}>
-        <ListItemIcon>
-          <Settings color="primary" />
+        <ListItemIcon sx={{ color: "secondary.text" }}>
+          <Settings />
         </ListItemIcon>
         <ListItemText primary="Settings" />
         {setting ? <ExpandLess /> : <ExpandMore />}
