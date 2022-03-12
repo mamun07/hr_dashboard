@@ -1,21 +1,33 @@
-import React, {useState} from 'react'
-import Head from 'next/head';
-import theme from '../theme'
-import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer} from 'react-toastify';
-import TopBar from '../container/TopBar';
-import { Box, ThemeProvider, CssBaseline, Drawer, IconButton, Toolbar, Typography, Paper, InputBase, Avatar} from '@mui/material';
-import { CgMenuLeft,CgMenuRightAlt } from "react-icons/cg";
-import SideBar from '../container/SideBar'
-import { Search } from '@mui/icons-material';
+import React, { useState } from "react";
+import Head from "next/head";
+import theme from "../theme";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+import TopBar from "../container/TopBar";
+import {
+  Box,
+  ThemeProvider,
+  CssBaseline,
+  Drawer,
+  IconButton,
+  Toolbar,
+  Typography,
+  Paper,
+  InputBase,
+  Avatar,
+} from "@mui/material";
+import { CgMenuLeft, CgMenuRightAlt } from "react-icons/cg";
+import SideBar from "../container/SideBar";
+import { Search } from "@mui/icons-material";
 
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
 const marginIconButton = 14;
 const iconFontSize = 10;
-const drawerWidthClose = (paddingIconButton + marginIconButton) * 2 + iconFontSize;
+const drawerWidthClose =
+  (paddingIconButton + marginIconButton) * 2 + iconFontSize;
 
-export default function Layout({children}) {
+export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
   function toogleOpen() {
     setOpen(!open);
@@ -30,9 +42,10 @@ export default function Layout({children}) {
       </Head>
       <CssBaseline />
       <ThemeProvider theme={theme}>
-        <Box  pt={8} display='flex'>
-
-          <Drawer variant="permanent" open={open}
+        <Box pt={8} display="flex">
+          <Drawer
+            variant="permanent"
+            open={open}
             sx={{
               width: open
                 ? { xs: "0px", sm: drawerWidthClose }
@@ -41,7 +54,7 @@ export default function Layout({children}) {
                 easing: theme.transitions.easing.sharp,
                 duration: open
                   ? theme.transitions.duration.leavingScreen
-                  : theme.transitions.duration.enteringScreen
+                  : theme.transitions.duration.enteringScreen,
               }),
               "& .MuiDrawer-paper": {
                 justifyContent: "space-between",
@@ -49,43 +62,70 @@ export default function Layout({children}) {
                 width: open
                   ? { xs: "0px", sm: drawerWidthClose }
                   : { xs: drawerWidthClose, sm: drawerWidthOpen },
-                backgroundColor: 'primary.dark',
-                color: 'primary.main',
+                backgroundColor: "primary.dark",
+                color: "primary.main",
                 transition: theme.transitions.create("width", {
                   easing: theme.transitions.easing.sharp,
                   duration: open
                     ? theme.transitions.duration.leavingScreen
-                    : theme.transitions.duration.enteringScreen
-                })
-              }
+                    : theme.transitions.duration.enteringScreen,
+                }),
+              },
             }}
           >
             <Box pt={7}>
-              <SideBar/>
+              <SideBar />
             </Box>
           </Drawer>
 
-          <Box component="div" flex='1'>
-            <Box position='fixed' sx={{top:0, left: 0, right: 0, zIndex: 9999}} bgcolor={'primary.dark'} color={'primary.main'}>
-              <Toolbar sx={{justifyContent: 'space-between'}}>
-                <Box component='div' sx={{display: 'flex', alignItems: 'center'}}>
-                  <IconButton size='large' onClick={toogleOpen} color="primary" sx={{marginRight: '15px'}}>
-                    {open ? <CgMenuLeft/> : <CgMenuRightAlt/>}
+          <Box component="div" flex="1">
+            <Box
+              position="fixed"
+              sx={{ top: 0, left: 0, right: 0, zIndex: 9999 }}
+              bgcolor={"primary.dark"}
+              color={"primary.main"}
+            >
+              <Toolbar sx={{ justifyContent: "space-between" }}>
+                <Box
+                  component="div"
+                  sx={{ display: "flex", alignItems: "center" }}
+                >
+                  <IconButton
+                    size="large"
+                    onClick={toogleOpen}
+                    color="primary"
+                    sx={{ marginRight: "15px" }}
+                  >
+                    {open ? <CgMenuLeft /> : <CgMenuRightAlt />}
                   </IconButton>
-                  {open ? '' : <Typography variant='h5'>Fortunetech</Typography>}
+                  {open ? (
+                    ""
+                  ) : (
+                    <Typography variant="h5">Fortunetech</Typography>
+                  )}
                 </Box>
-                <Box component='div' >
+                <Box component="div">
                   <Paper
                     component="form"
-                    sx={{ display: 'flex', alignItems: 'center', width: {sm: 200, md: 300, lg: 800}, backgroundColor: '#4a4a4a', border: '1px solid #4e4e4e'}}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      width: { sm: 200, md: 300, lg: 800 },
+                      backgroundColor: "#4a4a4a",
+                      border: "1px solid #4e4e4e",
+                    }}
                   >
                     <InputBase
-                      sx={{ ml: 1, flex: 1, color: 'primary.main' }}
+                      sx={{ ml: 1, flex: 1, color: "primary.main" }}
                       placeholder="Search here..."
-                      inputProps={{ 'aria-label': 'Search here...' }}
+                      inputProps={{ "aria-label": "Search here..." }}
                     />
-                    <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-                      <Search sx={{ color: '#918f8f'}}/>
+                    <IconButton
+                      type="submit"
+                      sx={{ p: "10px" }}
+                      aria-label="search"
+                    >
+                      <Search sx={{ color: "#918f8f" }} />
                     </IconButton>
                   </Paper>
                 </Box>
@@ -95,9 +135,19 @@ export default function Layout({children}) {
             {children}
           </Box>
         </Box>
-        
-      <ToastContainer position="bottom-right" autoClose={1000} hideProgressBar newestOnTop closeOnClick rtl={false} pauseOnFocusLoss={false} draggable pauseOnHover={false} />
+
+        <ToastContainer
+          position="bottom-right"
+          autoClose={1000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover={false}
+        />
       </ThemeProvider>
     </>
-  )
+  );
 }
