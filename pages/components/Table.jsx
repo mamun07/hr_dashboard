@@ -22,8 +22,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 
-function createData(name, calories, fat, carbs, protein) {
+function createData(id, name, calories, fat, carbs, protein) {
   return {
+    id,
     name,
     calories,
     fat,
@@ -33,19 +34,19 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Donut", 452, 25.0, 51, 4.9),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-  createData("Honeycomb", 408, 3.2, 87, 6.5),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Jelly Bean", 375, 0.0, 94, 0.0),
-  createData("KitKat", 518, 26.0, 65, 7.0),
-  createData("Lollipop", 392, 0.2, 98, 0.0),
-  createData("Marshmallow", 318, 0, 81, 2.0),
-  createData("Nougat", 360, 19.0, 9, 37.0),
-  createData("Oreo", 437, 18.0, 63, 4.0),
+  createData("#INV-234232", "Cupcake", 305, 3.7, 67, 4.3),
+  createData("#INV-234232", "Donut", 452, 25.0, 51, 4.9),
+  createData("#INV-234232", "Eclair", 262, 16.0, 24, 6.0),
+  createData("#INV-234232", "Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("#INV-234232", "Gingerbread", 356, 16.0, 49, 3.9),
+  createData("#INV-234232", "Honeycomb", 408, 3.2, 87, 6.5),
+  createData("#INV-234232", "Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("#INV-234232", "Jelly Bean", 375, 0.0, 94, 0.0),
+  createData("#INV-234232", "KitKat", 518, 26.0, 65, 7.0),
+  createData("#INV-234232", "Lollipop", 392, 0.2, 98, 0.0),
+  createData("#INV-234232", "Marshmallow", 318, 0, 81, 2.0),
+  createData("#INV-234232", "Nougat", 360, 19.0, 9, 37.0),
+  createData("#INV-234232", "Oreo", 437, 18.0, 63, 4.0),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -80,10 +81,16 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: "name",
+    id: "id",
     numeric: false,
     disablePadding: true,
-    label: "Dessert (100g serving)",
+    label: "Invoice ID",
+  },
+  {
+    id: "name",
+    numeric: true,
+    disablePadding: false,
+    label: "Name",
   },
   {
     id: "calories",
@@ -206,7 +213,7 @@ const EnhancedTableToolbar = (props) => {
           id="tableTitle"
           component="div"
         >
-          Nutrition
+          All Invoices
         </Typography>
       )}
 
@@ -273,7 +280,7 @@ export default function Tables() {
     setSelected(newSelected);
   };
 
-  const handleChangePage = (event, newPage) => {
+  const handleChangePage = (newPage) => {
     setPage(newPage);
   };
 
@@ -340,8 +347,9 @@ export default function Tables() {
                         scope="row"
                         padding="none"
                       >
-                        {row.name}
+                        {row.id}
                       </TableCell>
+                      <TableCell align="right">{row.name}</TableCell>
                       <TableCell align="right">{row.calories}</TableCell>
                       <TableCell align="right">{row.fat}</TableCell>
                       <TableCell align="right">{row.carbs}</TableCell>
